@@ -1,0 +1,2 @@
+import {createClient} from "./supabase-server";
+export async function requireAdmin(){const s=await createClient();const {data:{user}}=await s.auth.getUser();if(!user)throw new Error("UNAUTHORIZED");if((user.email||"").toLowerCase()===process.env.OWNER_EMAIL.toLowerCase())return user;const {data:p}=await s.from("profiles").select("role").eq("id",user.id).single();if(p?.role!=="admin")throw new Error("FORBIDDEN");return user}

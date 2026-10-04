@@ -1,0 +1,2 @@
+import Link from "next/link";
+export default function Nav(){return <nav className="nav"><Link className="logo" href="/">VÍDEO<span>+</span></Link><div className="navlinks"><Link href="/">Início</Link><Link href="/catalogo">Explorar</Link><Link href="/cadastro">Criar</Link></div><div className="spacer"/><Link className="btn secondary" href="/login">Entrar</Link><Link className="btn" href="/cadastro/novo">Criar conta</Link></nav>}
